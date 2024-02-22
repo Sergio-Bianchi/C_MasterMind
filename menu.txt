@@ -1,0 +1,10 @@
+=========MENU=========
+
+1. New game
+2. Leaderboard
+4. Settings
+5. Test colors
+6. Credits
+
+0. Exit
+======================

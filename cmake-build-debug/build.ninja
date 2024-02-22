@@ -55,6 +55,30 @@ build CMakeFiles/C_MasterMind.dir/main.c.o: C_COMPILER__C_MasterMind_unscanned_D
   OBJECT_DIR = CMakeFiles/C_MasterMind.dir
   OBJECT_FILE_DIR = CMakeFiles/C_MasterMind.dir
 
+build CMakeFiles/C_MasterMind.dir/graphic.c.o: C_COMPILER__C_MasterMind_unscanned_Debug /home/jag/CLionProjects/C_MasterMind/graphic.c || cmake_object_order_depends_target_C_MasterMind
+  DEP_FILE = CMakeFiles/C_MasterMind.dir/graphic.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/C_MasterMind.dir
+  OBJECT_FILE_DIR = CMakeFiles/C_MasterMind.dir
+
+build CMakeFiles/C_MasterMind.dir/utils.c.o: C_COMPILER__C_MasterMind_unscanned_Debug /home/jag/CLionProjects/C_MasterMind/utils.c || cmake_object_order_depends_target_C_MasterMind
+  DEP_FILE = CMakeFiles/C_MasterMind.dir/utils.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/C_MasterMind.dir
+  OBJECT_FILE_DIR = CMakeFiles/C_MasterMind.dir
+
+build CMakeFiles/C_MasterMind.dir/leaderboard.c.o: C_COMPILER__C_MasterMind_unscanned_Debug /home/jag/CLionProjects/C_MasterMind/leaderboard.c || cmake_object_order_depends_target_C_MasterMind
+  DEP_FILE = CMakeFiles/C_MasterMind.dir/leaderboard.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/C_MasterMind.dir
+  OBJECT_FILE_DIR = CMakeFiles/C_MasterMind.dir
+
+build CMakeFiles/C_MasterMind.dir/game.c.o: C_COMPILER__C_MasterMind_unscanned_Debug /home/jag/CLionProjects/C_MasterMind/game.c || cmake_object_order_depends_target_C_MasterMind
+  DEP_FILE = CMakeFiles/C_MasterMind.dir/game.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/C_MasterMind.dir
+  OBJECT_FILE_DIR = CMakeFiles/C_MasterMind.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target C_MasterMind
@@ -63,7 +87,7 @@ build CMakeFiles/C_MasterMind.dir/main.c.o: C_COMPILER__C_MasterMind_unscanned_D
 #############################################
 # Link the executable C_MasterMind
 
-build C_MasterMind: C_EXECUTABLE_LINKER__C_MasterMind_Debug CMakeFiles/C_MasterMind.dir/main.c.o
+build C_MasterMind: C_EXECUTABLE_LINKER__C_MasterMind_Debug CMakeFiles/C_MasterMind.dir/main.c.o CMakeFiles/C_MasterMind.dir/graphic.c.o CMakeFiles/C_MasterMind.dir/utils.c.o CMakeFiles/C_MasterMind.dir/leaderboard.c.o CMakeFiles/C_MasterMind.dir/game.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/C_MasterMind.dir
   POST_BUILD = :
