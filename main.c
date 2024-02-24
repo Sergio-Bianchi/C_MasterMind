@@ -4,8 +4,7 @@
 
 #include "define.h"
 #include "colors.h"
-#include "graphic.h"
-#include "utils.h"
+#include "functions.h"
 
 int main() {
     printCredits();

@@ -4,11 +4,9 @@
 
 #include "define.h"
 
-#include "game.h"
-#include "utils.h"
+#include "functions.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "graphic.h"
 #include "colors.h"
 
 int newGame(){
@@ -71,23 +69,14 @@ void printNewGameMenu() {
 
 void testColors(){
     printf("Test colors\n");
-    black;
-    printf("Black - o\n");
-    red;
-    printf("Red - o\n");
-    green;
-    printf("Green - o\n");
-    yellow;
-    printf("Yellow - o \n");
-    blue;
-    printf("Blue - o \n");
-    magenta;
-    printf("Magenta - o \n");
-    cyan;
-    printf("Cyan - o \n");
-    white;
-    printf("White - o \n");
-    purple;
-    printf("Purple - o \n");
+    printf("%s Black - o\n", BLACK);
+    printf( "%s Red - o\n" , RED);
+    printf( "%s Green - o\n", GREEN);
+    printf("%s Yellow - o \n", YELLOW);
+    printf("%s Blue - o \n" , BLUE);
+    printf("%s Magenta - o \n", MAGENTA);
+    printf("%s Cyan - o \n", CYAN);
+    printf("%s White - o \n", WHITE);
+    printf("%s Purple - o \n", PURPLE);
     back;
 }

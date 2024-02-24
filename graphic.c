@@ -4,11 +4,9 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "graphic.h"
 #include "define.h"
 #include "colors.h"
-#include "utils.h"
-#include "game.h"
+#include "functions.h"
 
 void printCredits() {
     char str[250];

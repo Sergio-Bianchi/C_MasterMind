@@ -8,9 +8,8 @@ add_executable(C_MasterMind main.c
         colors.h
         graphic.c
         utils.c
-        utils.h
         leaderboard.c
-        leaderboard.h
         game.c
-        game.h
+        functions.h
+        functions.h
 )
