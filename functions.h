@@ -11,7 +11,8 @@ void printNewGameMenu();
 void newGameMenu();
 void testColors();
 
-
+void generateGame();
+void game();
 
 void printCredits();
 void menu();

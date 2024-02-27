@@ -9,16 +9,29 @@
 #include <stdio.h>
 #include "colors.h"
 
-int newGame(){
-    newGameMenu();
 
+/* ? GLOBAL VARIABLES */
+
+int pins[5];
+int difficulty = 6;
+int length = 4;
+int maxAttempts = 10;
+int selectedColors[8] = {1, 2, 3, 4};
+int colors[8] = {};
+
+int attempt = 0;
+int tries[10][8];
+
+
+int newGame() {
+    newGameMenu();
 
 
     return 0;
 }
 
 
-void newGameMenu(){
+void newGameMenu() {
     printNewGameMenu();
     int menuOption = 0;
     printf("Enter an option: ");
@@ -33,7 +46,7 @@ void newGameMenu(){
             break;
         case 2:
             clear;
-            printf("Option 2\n");
+            generateGame();
             break;
         default:
             clear;
@@ -56,7 +69,7 @@ void printNewGameMenu() {
         file = fopen("./menuNewGame.txt", "r");
 
     }
-    while (fgets(str, 255, file) != NULL) {
+    while (fgets(str, 250, file) != NULL) {
         printf("%s", str);
     };
     back;
@@ -64,19 +77,94 @@ void printNewGameMenu() {
 }
 
 
-
 /* SETTINGS */
 
-void testColors(){
+void testColors() {
     printf("Test colors\n");
     printf("%s Black - o\n", BLACK);
-    printf( "%s Red - o\n" , RED);
-    printf( "%s Green - o\n", GREEN);
+    printf("%s Red - o\n", RED);
+    printf("%s Green - o\n", GREEN);
     printf("%s Yellow - o \n", YELLOW);
-    printf("%s Blue - o \n" , BLUE);
+    printf("%s Blue - o \n", BLUE);
     printf("%s Magenta - o \n", MAGENTA);
     printf("%s Cyan - o \n", CYAN);
     printf("%s White - o \n", WHITE);
     printf("%s Purple - o \n", PURPLE);
     back;
+}
+
+
+void generateGame() {
+    int i;
+    for (i = 0; i < length; i++) {
+        pins[i] = rand() % difficulty;
+        printf("%d ", pins[i]);
+    }
+    back;
+    game();
+}
+
+
+void game() {
+    int checkPins[10];
+    for (int i = 0; i < length; i++) {
+        checkPins[i] = pins[i];
+    }
+
+
+    printf("Enter your guess (numbers separated by commas): ");
+    if (length == 4) {
+        scanf("%d,%d,%d,%d", &tries[attempt][0], &tries[attempt][1], &tries[attempt][2], &tries[attempt][3]);
+    } else if (length == 5) {
+        scanf("%d,%d,%d,%d,%d", &tries[attempt][0], &tries[attempt][1], &tries[attempt][2], &tries[attempt][3],
+              &tries[attempt][4]);
+    } else if (length == 6) {
+        scanf("%d,%d,%d,%d,%d,%d", &tries[attempt][0], &tries[attempt][1], &tries[attempt][2], &tries[attempt][3],
+              &tries[attempt][4], &tries[attempt][5]);
+    } else if (length == 7) {
+        scanf("%d,%d,%d,%d,%d,%d,%d", &tries[attempt][0], &tries[attempt][1], &tries[attempt][2], &tries[attempt][3],
+              &tries[attempt][4], &tries[attempt][5], &tries[attempt][6]);
+    } else if (length == 8) {
+        scanf("%d,%d,%d,%d,%d,%d,%d,%d", &tries[attempt][0], &tries[attempt][1], &tries[attempt][2], &tries[attempt][3],
+              &tries[attempt][4], &tries[attempt][5], &tries[attempt][6], &tries[attempt][7]);
+    }
+
+
+    printf("||");
+    for (int i = 0; i < length; i++) {
+        printf(" %d |", tries[attempt][i]);
+    }
+    printf("| ");
+
+    int corrects = 0;
+    int presents = 0;
+
+    for (int i = 0; i < length; i++) {
+        if (tries[attempt][i] == checkPins[i]) {
+            printf("2 ");
+            back;
+            checkPins[i] = -1;
+            corrects++;
+        } else {
+            for (int j = 0; j < length; j++ && i != j) {
+                if (tries[attempt][i] == checkPins[j]) {
+                    checkPins[i] = -1;
+                    presents++;
+                    break;
+                }
+            }
+
+        }
+    }
+    for (int i = 0; i < corrects; ++i) {
+        printf("2 ");
+    }
+    for (int i = 0; i < presents; ++i) {
+        printf("1 ");
+    }
+    for (int i = 0; i < length - corrects - presents; ++i) {
+        printf("0 ");
+    }
+    back;
+    game();
 }
