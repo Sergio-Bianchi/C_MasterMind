@@ -141,21 +141,30 @@ void game() {
 
     for (int i = 0; i < length; i++) {
         if (tries[attempt][i] == checkPins[i]) {
-            printf("2 ");
+            back;
+            printf("===== ");
+
             back;
             checkPins[i] = -1;
             corrects++;
-        } else {
-            for (int j = 0; j < length; j++ && i != j) {
-                if (tries[attempt][i] == checkPins[j]) {
-                    checkPins[i] = -1;
-                    presents++;
-                    break;
-                }
-            }
-
         }
     }
+
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j < length; ++j) {
+            if (tries[attempt][i] == checkPins[j]) {
+                back;
+                printf("===/== ");
+                back;
+                checkPins[j] = -1;
+                presents++;
+                break;
+            }
+        }
+
+    }
+
+
     for (int i = 0; i < corrects; ++i) {
         printf("2 ");
     }
