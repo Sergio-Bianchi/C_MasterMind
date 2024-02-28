@@ -141,10 +141,7 @@ void game() {
 
     for (int i = 0; i < length; i++) {
         if (tries[attempt][i] == checkPins[i]) {
-            back;
-            printf("===== ");
 
-            back;
             checkPins[i] = -1;
             corrects++;
         }
@@ -153,9 +150,7 @@ void game() {
     for (int i = 0; i < length; i++) {
         for (int j = 0; j < length; ++j) {
             if (tries[attempt][i] == checkPins[j]) {
-                back;
-                printf("===/== ");
-                back;
+
                 checkPins[j] = -1;
                 presents++;
                 break;
@@ -173,6 +168,12 @@ void game() {
     }
     for (int i = 0; i < length - corrects - presents; ++i) {
         printf("0 ");
+    }
+    if (corrects == 4) {
+        back;
+        printf("Hai vinto!");
+        back;
+        return;
     }
     back;
     game();

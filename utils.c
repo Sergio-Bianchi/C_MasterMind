@@ -4,6 +4,7 @@
 
 #include "functions.h"
 #include <stdio.h>
+#include "define.h"
 
 
 
@@ -12,4 +13,6 @@ void pressEnter() {
     printf("Press enter\n");
     enter = getc(stdin);
     scanf("%*[^\n]"), scanf("%*c");
+    clear;
+
 }
