@@ -1,3 +1,3 @@
-C:/Users/I3AI2/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/C_MasterMind.dir
-C:/Users/I3AI2/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/I3AI2/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jag/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/C_MasterMind.dir
+/home/jag/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jag/CLionProjects/C_MasterMind/cmake-build-debug/CMakeFiles/rebuild_cache.dir

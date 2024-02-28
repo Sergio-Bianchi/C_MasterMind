@@ -12,6 +12,7 @@ void newGameMenu();
 void testColors();
 
 void generateGame();
+void guessInput();
 void game();
 
 void printCredits();

@@ -7,7 +7,7 @@
 
 // * PRINT COLORS
 
-#define preset_color printf("\033[0m")
+#define reset_color printf("\033[0m")
 
 #define PBLACK printf("\033[0;30m")
 #define PRED printf("\033[0;31m")
