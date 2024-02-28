@@ -107,9 +107,11 @@ void generateGame() {
 
 void game() {
     int checkPins[10];
+    int checkInput[10];
     for (int i = 0; i < length; i++) {
         checkPins[i] = pins[i];
     }
+
 
 
     printf("Enter your guess (numbers separated by commas): ");
@@ -129,10 +131,15 @@ void game() {
               &tries[attempt][4], &tries[attempt][5], &tries[attempt][6], &tries[attempt][7]);
     }
 
+    for (int i = 0; i < length; ++i) {
+        checkInput[i] = tries[attempt][i];
+    }
+
+
 
     printf("||");
     for (int i = 0; i < length; i++) {
-        printf(" %d |", tries[attempt][i]);
+        printf(" %d |", checkInput[i]);
     }
     printf("| ");
 
@@ -140,7 +147,7 @@ void game() {
     int presents = 0;
 
     for (int i = 0; i < length; i++) {
-        if (tries[attempt][i] == checkPins[i]) {
+        if (checkInput[i] == checkPins[i]) {
 
             checkPins[i] = -1;
             corrects++;
@@ -149,7 +156,7 @@ void game() {
 
     for (int i = 0; i < length; i++) {
         for (int j = 0; j < length; ++j) {
-            if (tries[attempt][i] == checkPins[j]) {
+            if (checkInput[i] == checkPins[j]) {
 
                 checkPins[j] = -1;
                 presents++;
