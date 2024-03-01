@@ -21,7 +21,7 @@ int selectedColors[8] = {1, 2, 3, 4};
 int colors[8] = {};
 
 int attempt = 0;
-int tries[10][8];
+int tries[10][20];
 
 
 int newGame() {
@@ -128,8 +128,41 @@ void guessInput() {
 
 }
 
+void printHistory() {
+    int presents;
+    int corrects;
+
+    presents = tries[attempt][18];
+    corrects = tries[attempt][19];
+
+    for (int i = 0; i < attempt; i++) {
+        printf("||");
+        for (int j = 0; j < length; j++) {
+            printf(" %d |", tries[i][j]);
+        }
+        printf("| \n");
+
+        for (int j = 0; j < corrects; ++j) {
+            printf("%s o ", RED);
+            reset_color;
+        }
+        for (int j = 0; j < presents; ++j) {
+            printf("%s o ", WHITE);
+            reset_color;
+        }
+    }
+
+
+
+
+
+}
+
+
 
 void game() {
+    clear;
+    printHistory();
     /* * Dichiarazione array locali*/
     int checkPins[10];
     int checkInput[10];
@@ -146,21 +179,6 @@ void game() {
     for (int i = 0; i < length; ++i) {
         checkInput[i] = tries[attempt][i];
     }
-
-
-    back;
-    printf("Array checkInput: ");
-    for (int k = 0; k < length; ++k) {
-        printf("%d ", checkInput[k]);
-    }
-    back;
-
-    back;
-    printf("Array tries: ");
-    for (int k = 0; k < length; ++k) {
-        printf("%d ", tries[attempt][k]);
-    }
-    back;
 
 
     /* * Stampa tentativo*/
@@ -180,57 +198,31 @@ void game() {
         if (checkInput[i] == checkPins[i]) {
 
             checkInput[i] = -1;
-            checkPins[i] = -1;
-
-            back;
-            printf("Array checkInput right: ");
-            for (int j = 0; j < length; ++j) {
-                printf("%d ", checkInput[j]);
-            }
-            back;
+            checkPins[i] = -3;
 
             corrects++;
         }
     }
 
-    back;
-    printf("Array checkPins: ");
-    for (int k = 0; k < length; ++k) {
-        printf("%d ", checkPins[k]);
-    }
-    back;
-
     /* * Controlla giuste in posizione sbagliata */
-/*    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++) {
         for (int j = 0; j < length; ++j) {
             if (checkInput[i] == checkPins[j]) {
-                checkInput[i] = -1;
-                checkPins[j] = -1;
+                checkInput[i] = -2;
+                checkPins[j] = -4;
 
-                back;
-                printf("Array checkInput: ");
-                for (int k = 0; k < length; ++k) {
-                    printf("%d ", checkInput[k]);
-                }
-                back;
 
                 presents++;
                 break;
             }
         }
 
-    }*/
-
-
-    for (int i = 0; i < length; ++i) {
-        for (int j = 0; j < length; ++j) {
-            if(checkInput[i]==checkPins[j]){
-                checkPins[j] = -2;
-                printf(" -Z- ");
-            }
-        }
-
     }
+
+    /* * Aggiungi i valori di corretti e presenti in fondo all'array*/
+
+    tries[attempt][18] = presents;
+    tries[attempt][19] = corrects;
 
     for (int i = 0; i < corrects; ++i) {
         printf("%s o ", RED);
@@ -246,10 +238,6 @@ void game() {
         printf("Hai vinto!");
         back;
         return;
-    }
-    printf("Array tries: ");
-    for (int k = 0; k < length; ++k) {
-        printf("%d ", tries[attempt][k]);
     }
     back;
     attempt++;
