@@ -11,5 +11,4 @@ add_executable(C_MasterMind main.c
         leaderboard.c
         game.c
         functions.h
-        functions.h
 )

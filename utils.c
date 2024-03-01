@@ -9,9 +9,8 @@
 
 
 void pressEnter() {
-    int enter;
     printf("Press enter\n");
-    enter = getc(stdin);
+    getc(stdin);
     scanf("%*[^\n]"), scanf("%*c");
     clear;
 

@@ -15,13 +15,13 @@
 
 int pins[5];
 int difficulty = 6;
-int length = 4;
+int length = 5;
 int maxAttempts = 10;
 int selectedColors[8] = {1, 2, 3, 4};
 int colors[8] = {};
 
 int attempt = 0;
-int tries[10][20];
+int tries[20][20];
 
 
 int newGame() {
@@ -56,9 +56,10 @@ void newGameMenu() {
 
     }
 
+    fflush(stdin);
     pressEnter();
+    newGame();
 
-    newGameMenu();
 
 }
 
@@ -97,6 +98,10 @@ void testColors() {
 
 void generateGame() {
     fflush(stdin);
+
+    attempt = 0;
+
+
     int i;
     for (i = 0; i < length; i++) {
         pins[i] = rand() % difficulty;
@@ -107,8 +112,8 @@ void generateGame() {
 }
 
 void guessInput() {
-    char rawGuess[255];
-
+    char rawGuess[250];
+    fflush(stdin);
 
 
     unsigned long len;
@@ -117,7 +122,7 @@ void guessInput() {
     /* Controlla lunghezza input */
     do{
         printf("Enter your guess: ");
-        fgets(rawGuess, 255, stdin);
+        fgets(rawGuess, 250, stdin);
 
         len = strlen(rawGuess);
         if (rawGuess[len - 1] == '\n') len--;
@@ -152,7 +157,7 @@ int printHistory() {
     for (int i = 0; i < attempt; i++) {
         presents = tries[i][18];
         corrects = tries[i][19];
-        printf("%d ||", i + 1);
+        printf("%2d ||", i + 1);
         for (int j = 0; j < length; j++) {
             printf(" %d |", tries[i][j]);
         }

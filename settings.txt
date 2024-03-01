@@ -1,0 +1,8 @@
+========SETTINGS=======
+
+1. Difficulty
+2. Leaderboard
+3.
+
+0. Exit
+======================

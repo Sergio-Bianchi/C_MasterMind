@@ -4,7 +4,8 @@
 2. Leaderboard
 4. Settings
 5. Test colors
-6. Credits
+6. How to play
+7. Credits
 
 0. Exit
 ======================

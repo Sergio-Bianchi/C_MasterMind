@@ -9,22 +9,12 @@
 
 
 
-int numCifre(int n) {
-    int cifre = 0;
-    while (n > 0) {
-        n = n / 10;
-        cifre++;
-    }
-    return cifre;
-}
-
-
 int main() {
 
     srand(time(NULL));
 
     printCredits();
-    sleep(2);
+    sleep(1);
 
     clear;
 
