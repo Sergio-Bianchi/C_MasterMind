@@ -96,6 +96,7 @@ void testColors() {
 
 
 void generateGame() {
+    fflush(stdin);
     int i;
     for (i = 0; i < length; i++) {
         pins[i] = rand() % difficulty;
@@ -106,41 +107,56 @@ void generateGame() {
 }
 
 void guessInput() {
-    char rawGuess[length];
+    char rawGuess[255];
 
-    /* Pulisci input in eccesso */
-    if (!strchr(rawGuess, '\n'))     //newline does not exist
-        while (fgetc(stdin) != '\n'); //discard until newline
 
-    printf("Enter your guess (numbers separated by commas): ");
-    fgets(rawGuess, length + 1, stdin);
 
-    unsigned long len = strlen(rawGuess);
-    if (rawGuess[len - 1] == '\n') len--;
-    if (len != length) {
-        printf("Invalid input");
-        guessInput();
-    }
+    unsigned long len;
+
+
+    /* Controlla lunghezza input */
+    do{
+        printf("Enter your guess: ");
+        fgets(rawGuess, 255, stdin);
+
+        len = strlen(rawGuess);
+        if (rawGuess[len - 1] == '\n') len--;
+        if (len != length) {
+            printf("Invalid input \n");
+            fflush(stdin);
+
+        }
+
+    } while (len != length) ;
+
+    /* Controlla se input è numerico */
     for (int i = 0; i < length; ++i) {
-        tries[attempt][i] = rawGuess[i] - '0';
+        if (rawGuess[i] < '0' || rawGuess[i] > '9') {
+            printf("Invalid input \n");
+            guessInput();
+            return;
+        } else{
+            tries[attempt][i] = rawGuess[i] - '0';
+        }
     }
 
 
 }
 
-void printHistory() {
+int printHistory() {
     int presents;
     int corrects;
 
-    presents = tries[attempt][18];
-    corrects = tries[attempt][19];
+
 
     for (int i = 0; i < attempt; i++) {
-        printf("||");
+        presents = tries[i][18];
+        corrects = tries[i][19];
+        printf("%d ||", i + 1);
         for (int j = 0; j < length; j++) {
             printf(" %d |", tries[i][j]);
         }
-        printf("| \n");
+        printf("| ");
 
         for (int j = 0; j < corrects; ++j) {
             printf("%s o ", RED);
@@ -150,19 +166,37 @@ void printHistory() {
             printf("%s o ", WHITE);
             reset_color;
         }
+        back;
     }
 
 
 
+    if (corrects == 4) {
+        back;
+        printf("Hai vinto!");
+        back;
+        return 1;
+    }
 
 
+
+    return 0;
 }
 
 
 
 void game() {
     clear;
-    printHistory();
+    if(printHistory() == 1){
+        back;
+        return;
+    }
+    if (attempt == maxAttempts) {
+        printf("Hai perso!");
+        back;
+        return;
+    }
+
     /* * Dichiarazione array locali*/
     int checkPins[10];
     int checkInput[10];
@@ -180,14 +214,6 @@ void game() {
         checkInput[i] = tries[attempt][i];
     }
 
-
-    /* * Stampa tentativo*/
-
-    printf("||");
-    for (int i = 0; i < length; i++) {
-        printf(" %d |", checkInput[i]);
-    }
-    printf("| ");
 
     /* * Controlla tentativo*/
     int corrects = 0;
@@ -224,6 +250,7 @@ void game() {
     tries[attempt][18] = presents;
     tries[attempt][19] = corrects;
 
+/*
     for (int i = 0; i < corrects; ++i) {
         printf("%s o ", RED);
         reset_color;
@@ -232,15 +259,12 @@ void game() {
         printf("%s o ", WHITE);
         reset_color;
     }
+*/
 
-    if (corrects == 4) {
-        back;
-        printf("Hai vinto!");
-        back;
-        return;
-    }
+
     back;
     attempt++;
     back;
     game();
+    return;
 }

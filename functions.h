@@ -14,6 +14,7 @@ void testColors();
 void generateGame();
 void guessInput();
 void game();
+int printHistory();
 
 void printCredits();
 void menu();
