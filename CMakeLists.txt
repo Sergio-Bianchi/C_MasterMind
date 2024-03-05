@@ -6,9 +6,9 @@ set(CMAKE_C_STANDARD 11)
 add_executable(C_MasterMind main.c
         define.h
         colors.h
-        graphic.c
         utils.c
         leaderboard.c
         game.c
         functions.h
+        printFiles.c
 )

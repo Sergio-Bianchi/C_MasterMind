@@ -1,0 +1,28 @@
+How to play
+
+When you launch the game, a menu will appear on the screen
+
+=========MENU=========
+
+1. New game
+2. Leaderboard
+4. Settings
+5. Test colors
+6. How to play
+7. Credits
+
+0. Exit
+======================
+
+To start a new game, enter 1. A sub-menu will appear on screen
+
+=======NEW GAME=======
+
+1. 1v1
+2. Generate
+
+0. Back
+======================
+
+By pressing 2, a game with a generated sequence will start
+

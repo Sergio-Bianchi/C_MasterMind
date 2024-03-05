@@ -2,3 +2,6 @@
          C MASTERMIND
    Created by Sergio Bianchi
 ================================
+
+Gitbook: https://jaggroup.gitbook.io/c_mastermind/
+Github: https://github.com/Sergio-Bianchi

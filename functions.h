@@ -7,19 +7,24 @@
 
 
 int newGame();
+
+
 void printNewGameMenu();
+void printHowToPlay();
+int printHistory();
+void printCredits();
+void printMenu();
+
 void newGameMenu();
 void testColors();
 
 void generateGame();
+void insertGame();
 void guessInput();
 void game();
-int printHistory();
 
-void printCredits();
+
 void menu();
-
-
 
 
 void pressEnter();

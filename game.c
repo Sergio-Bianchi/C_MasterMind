@@ -32,6 +32,63 @@ int newGame() {
 }
 
 
+
+void menu(){
+    printMenu();
+    int menuOption = 0;
+    printf("Enter an option: ");
+    scanf("%d", &menuOption);
+    switch (menuOption) {
+        case 0:
+            clear;
+            printf("Thank you for playing!");
+            back;
+            return;
+        case 1:
+            clear;
+            newGame();
+            break;
+        case 2:
+            clear;
+            newGame();
+            break;
+        case 3:
+            clear;
+            newGame();
+            break;
+        case 4:
+            clear;
+            newGame();
+            break;
+        case 5:
+            clear;
+            testColors();
+            break;
+        case 6:
+            clear;
+            printHowToPlay();
+            break;
+        default:
+            clear;
+            printCredits();
+            break;
+
+    }
+
+    pressEnter();
+    clear;
+    menu();
+}
+
+
+
+
+
+
+
+
+
+
 void newGameMenu() {
     printNewGameMenu();
     int menuOption = 0;
@@ -43,7 +100,7 @@ void newGameMenu() {
             return;
         case 1:
             clear;
-            newGame();
+            insertGame();
             break;
         case 2:
             clear;
@@ -111,10 +168,25 @@ void generateGame() {
     game();
 }
 
+
+
+/* TODO Sistemare input e controllo input*/
+void insertGame() {
+    int i;
+
+    attempt = 0;
+    for (i = 0; i < length; i++) {
+        printf("Insert number %d: ", i + 1);
+        scanf("%d", &pins[i]);
+    }
+    back;
+    game();
+}
+
+
+
 void guessInput() {
     char rawGuess[250];
-    fflush(stdin);
-
 
     unsigned long len;
 
@@ -132,7 +204,7 @@ void guessInput() {
 
         }
 
-    } while (len != length) ;
+    } while (len != length);
 
     /* Controlla se input è numerico */
     for (int i = 0; i < length; ++i) {
@@ -176,7 +248,7 @@ int printHistory() {
 
 
 
-    if (corrects == 4) {
+    if (corrects == length) {
         back;
         printf("Hai vinto!");
         back;
@@ -197,7 +269,18 @@ void game() {
         return;
     }
     if (attempt == maxAttempts) {
-        printf("Hai perso!");
+        back;
+
+        printf("You loose!");
+        back;
+        printf("Solution: ");
+        back;
+        printf("||");
+        for(int i = 0; i < length; i++){
+            printf(" %d |", pins[i]);
+        }
+        printf("|");
+
         back;
         return;
     }
@@ -255,16 +338,8 @@ void game() {
     tries[attempt][18] = presents;
     tries[attempt][19] = corrects;
 
-/*
-    for (int i = 0; i < corrects; ++i) {
-        printf("%s o ", RED);
-        reset_color;
-    }
-    for (int i = 0; i < presents; ++i) {
-        printf("%s o ", WHITE);
-        reset_color;
-    }
-*/
+
+
 
 
     back;
