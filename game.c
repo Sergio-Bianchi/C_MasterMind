@@ -172,12 +172,35 @@ void generateGame() {
 
 /* TODO Sistemare input e controllo input*/
 void insertGame() {
+    char rawInput[250];
+    unsigned long len;
+
     int i;
 
     attempt = 0;
-    for (i = 0; i < length; i++) {
-        printf("Insert number %d: ", i + 1);
-        scanf("%d", &pins[i]);
+    do{
+        printf("Enter your guess: ");
+        fgets(rawInput, 250, stdin);
+
+        len = strlen(rawInput);
+        if (rawInput[len - 1] == '\n') len--;
+        if (len != length) {
+            printf("Invalid input \n");
+            fflush(stdin);
+
+        }
+
+    } while (len != length);
+
+    /* Controlla se input è numerico */
+    for (i = 0; i < length; ++i) {
+        if (rawInput[i] < '0' || rawInput[i] > '9') {
+            printf("Invalid input \n");
+            guessInput();
+            return;
+        } else{
+            pins[i] = rawInput[i] - '0';
+        }
     }
     back;
     game();
