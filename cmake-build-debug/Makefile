@@ -152,30 +152,6 @@ game.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/game.c.s
 .PHONY : game.c.s
 
-graphic.obj: graphic.c.obj
-.PHONY : graphic.obj
-
-# target to build an object file
-graphic.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/graphic.c.obj
-.PHONY : graphic.c.obj
-
-graphic.i: graphic.c.i
-.PHONY : graphic.i
-
-# target to preprocess a source file
-graphic.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/graphic.c.i
-.PHONY : graphic.c.i
-
-graphic.s: graphic.c.s
-.PHONY : graphic.s
-
-# target to generate assembly for a file
-graphic.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/graphic.c.s
-.PHONY : graphic.c.s
-
 leaderboard.obj: leaderboard.c.obj
 .PHONY : leaderboard.obj
 
@@ -224,6 +200,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/main.c.s
 .PHONY : main.c.s
 
+printFiles.obj: printFiles.c.obj
+.PHONY : printFiles.obj
+
+# target to build an object file
+printFiles.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/printFiles.c.obj
+.PHONY : printFiles.c.obj
+
+printFiles.i: printFiles.c.i
+.PHONY : printFiles.i
+
+# target to preprocess a source file
+printFiles.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/printFiles.c.i
+.PHONY : printFiles.c.i
+
+printFiles.s: printFiles.c.s
+.PHONY : printFiles.s
+
+# target to generate assembly for a file
+printFiles.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\C_MasterMind.dir\build.make CMakeFiles/C_MasterMind.dir/printFiles.c.s
+.PHONY : printFiles.c.s
+
 utils.obj: utils.c.obj
 .PHONY : utils.obj
 
@@ -260,15 +260,15 @@ help:
 	@echo ... game.obj
 	@echo ... game.i
 	@echo ... game.s
-	@echo ... graphic.obj
-	@echo ... graphic.i
-	@echo ... graphic.s
 	@echo ... leaderboard.obj
 	@echo ... leaderboard.i
 	@echo ... leaderboard.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... printFiles.obj
+	@echo ... printFiles.i
+	@echo ... printFiles.s
 	@echo ... utils.obj
 	@echo ... utils.i
 	@echo ... utils.s

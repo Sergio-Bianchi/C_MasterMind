@@ -120,20 +120,7 @@ void newGameMenu() {
 
 }
 
-void printNewGameMenu() {
-    char str[250];
-    FILE *file;
-    file = fopen("../menuNewGame.txt", "r");
-    if (file == NULL) {
-        file = fopen("./menuNewGame.txt", "r");
 
-    }
-    while (fgets(str, 250, file) != NULL) {
-        printf("%s", str);
-    };
-    back;
-    fclose(file);
-}
 
 
 /* SETTINGS */
@@ -170,7 +157,6 @@ void generateGame() {
 
 
 
-/* TODO Sistemare input e controllo input*/
 void insertGame() {
     char rawInput[250];
     unsigned long len;
@@ -179,7 +165,7 @@ void insertGame() {
 
     attempt = 0;
     do{
-        printf("Enter your guess: ");
+        printf("Enter the sequence: ");
         fgets(rawInput, 250, stdin);
 
         len = strlen(rawInput);

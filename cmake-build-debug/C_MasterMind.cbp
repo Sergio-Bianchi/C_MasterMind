@@ -88,13 +88,13 @@
 		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/game.c">
 			<Option target="C_MasterMind"/>
 		</Unit>
-		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/graphic.c">
-			<Option target="C_MasterMind"/>
-		</Unit>
 		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/leaderboard.c">
 			<Option target="C_MasterMind"/>
 		</Unit>
 		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/main.c">
+			<Option target="C_MasterMind"/>
+		</Unit>
+		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/printFiles.c">
 			<Option target="C_MasterMind"/>
 		</Unit>
 		<Unit filename="C:/Users/i3ai2/CLionProjects/C_MasterMind/utils.c">
