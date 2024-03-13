@@ -50,11 +50,11 @@ void menu(){
             break;
         case 2:
             clear;
-            newGame();
+            printf("WiP\n");
             break;
         case 3:
             clear;
-            newGame();
+            printf("WiP\n");
             break;
         case 4:
             clear;
